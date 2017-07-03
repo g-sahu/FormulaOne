@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.HomeActivity">
+
+    <LinearLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            custom:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            custom:title="Drivers"
+            android:layout_weight="0.9"/>
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:iconifiedByDefault="true"
+            android:background="@color/colorPrimary"
+            android:layout_weight="0.1"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarLayout"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="horizontal"
+            android:layout_weight="3" >
+
+            <de.codecrafters.tableview.SortableTableView
+                android:id="@+id/tableView"
+                android:layout_width="900dp"
+                android:layout_height="wrap_content"
+                custom:tableView_columnCount="4"
+                custom:tableView_headerColor="@color/colorPrimary"
+                custom:tableView_headerElevation="10"
+                android:scrollbars="horizontal" />
+
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3">
+
+            <ImageButton
+                android:id="@+id/previousButton"
+                android:src="@drawable/ic_navigate_before_black_48dp"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_weight="0.5"
+                android:onClick="previous"
+                android:contentDescription="@string/prev_button" />
+
+            <ImageButton
+                android:id="@+id/nextButton"
+                android:src="@drawable/ic_navigate_next_black_48dp"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_weight="0.5"
+                android:onClick="next"
+                android:contentDescription="@string/next_button" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
